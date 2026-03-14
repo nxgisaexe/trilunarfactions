@@ -77,61 +77,55 @@ export function ResultCard({ name, personality, onRestart, onAdminAccess, answer
       
       <div className="w-full max-w-3xl relative z-10">
         
-        <div className="mb-4 sm:mb-6  rounded-2xl p-4 sm:p-6 flex flex-row sm:flex-row e987654 items-start gap-4">
-        <div className="text-center items-center justify-center ">
-         <p 
-            className="text-3xl sm:text-4xl text-white animate-floatUpDown"
-            style={{ 
+                <div className="mb-4 sm:mb-6 rounded-2xl p-4 sm:p-6 flex flex-row sm:flex-row items-start gap-4">
+          <div className="text-center items-center justify-center">
+            <p 
+              className="text-xl sm:text-4xl text-white animate-floatUpDown"
+              style={{ 
                 fontFamily: "'Genshin Drip', Merriweather, serif",
-                textShadow: '0 0 20px rgba(167, 139, 250, 0.8), 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(124, 58, 237, 0.4)',
-                WebkitTextStroke: '2px #569eff',
+                WebkitTextStroke: '1px #569eff',
                 paintOrder: 'stroke fill',
                 letterSpacing: '0.05em'
-            }}
+              }}
             >
-            THE MOONLIGHT ANSWERS...
+              THE MOONLIGHT ANSWERS...
             </p>
+          </div>
         </div>
+
+        <div className="mb-4 shadow-[inset_0_0_50px_5px_rgba(255,255,255,0.5)] sm:mb-6 bg-white/10 backdrop-blur-lg border-2 border-purple-400/30 rounded-2xl p-3 sm:p-6 flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+          <img 
+            src={chudbinHappy} 
+            alt="chudBinaHappy"
+            className="animate-floatUpDown h-20 sm:h-24 w-auto object-contain opacity-95 flex-shrink-0"
+            style={{
+              filter: 'drop-shadow(0 0 15px rgba(147, 51, 234, 0.4))'
+            }}
+          />
+          <div className="flex flex-col gap-3">
+            <p className="animate-floatUpDown text-purple-50 leading-snug text-xs sm:text-sm italic" style={{ 
+              fontFamily: "'Genshin Impact', Merriweather, serif",
+              WebkitTextStroke: `1px #5B21B6`,
+              paintOrder: 'stroke fill'
+            }}>
+              {data.description}
+            </p>
+          </div>
         </div>
-        <div className="mb-4 shadow-[inset_0_0_50px_5px_rgba(255,255,255,0.5)] sm:mb-6 bg-white/10 backdrop-blur-lg border-2 border-purple-400/30 rounded-2xl p-4 sm:p-6 flex flex-row sm:flex-row e987654  items-start gap-4">
-        
 
-              <img 
-                src={chudbinHappy} 
-                alt="chudBinaHappy"
-                className="animate-floatUpDown h-12 sm:h-24 w-auto object-contain opacity-95 flex-shrink-0"
-                style={{
-                  filter: 'drop-shadow(0 0 15px rgba(147, 51, 234, 0.4))'
-                }}
-              />
-              <div className="flex flex-col gap-3">
-
-                <p className="animate-floatUpDown text-purple-50 leading-relaxed text-xs italic sm:text-sm" style={{ 
-                  fontFamily: "'Genshin Impact', Merriweather, serif",
-                  textShadow: '0 0 10px rgba(167, 139, 250, 0.5)',
-                  WebkitTextStroke: `2px #5B21B6`,
-                  paintOrder: 'stroke fill'
-                }}>
-                  {data.description}
-                </p>
-              </div>
-            </div>
-
-
-        <div className="bg-white/10 backdrop-blur-lg border-2 border-blue-400/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl mb-6">
-
+        <div className="bg-white/10 backdrop-blur-lg border-2 border-blue-400/30 rounded-4xl sm:rounded-4xl p-4 sm:p-8 shadow-2xl mb-6">
           <div 
-            className="p-6 mb-6 rounded-2xl sm:rounded-3xl shadow-[inset_0_0_50px_5px_rgba(255,255,255,0.5)]"
+            className="p-4 sm:p-6 mb-6 rounded-4xl sm:rounded-4xl shadow-[inset_0_0_50px_5px_rgba(255,255,255,0.5)]"
             style={{ backgroundColor: data.bgColor }}
           >
-            <div className="flex items-center justify-between ">
+            <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-bold mb-1 text-white opacity-80">
                   {data.title}
                 </p>
-                <h2 className="text-5xl sm:text-5xl text-white" style={{ 
+                <h2 className="text-3xl sm:text-5xl text-white" style={{ 
                   fontFamily: "'Genshin Drip', 'Merriweather', serif",
-                  WebkitTextStroke: `3px ${data.strokeColor}`,
+                  WebkitTextStroke: `2px ${data.strokeColor}`,
                   paintOrder: 'stroke fill'
                 }}>
                   {personality}
@@ -140,39 +134,34 @@ export function ResultCard({ name, personality, onRestart, onAdminAccess, answer
               <img 
                 src={data.icon} 
                 alt={personality}
-                className="h-20 sm:h-24 w-auto object-contain"
+                className="h-16 sm:h-24 w-auto object-contain flex-shrink-0"
               />
             </div>
           </div>
 
-
           <div>
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-              <div className="border-2 border-purple-400/30 p-3 bg-white rounded">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-4 sm:mb-6">
+              <div className="border-2 border-purple-400/30 p-2 sm:p-3 bg-white rounded-3xl">
                 <p className="text-xs font-bold uppercase tracking-wide mb-1 text-indigo-800/80">NAME</p>
-                <p className="font-bold text-indigo-600/60 truncate">{name}</p>
+                <p className="font-bold text-indigo-600/60 truncate text-xs sm:text-base">{name}</p>
               </div>
-              <div className="border-2 border-purple-400/30 p-3 bg-white rounded">
+              <div className="border-2 border-purple-400/30 p-2 sm:p-3 bg-white rounded-3xl">
                 <p className="text-xs font-bold uppercase tracking-wide mb-1 text-indigo-800/80">DATE</p>
-                <p className="font-bold text-indigo-600/60">{currentDate}</p>
+                <p className="font-bold text-indigo-600/60 text-xs sm:text-base">{currentDate}</p>
               </div>
             </div>
-
-            
           </div>
         </div>
 
-
-        <div className="mb-6 bg-white/10 backdrop-blur-lg border-2 border-purple-400/30 rounded-2xl p-6 shadow-[inset_0_0_50px_5px_rgba(255,255,255,0.5)]">
+        <div className="mb-6 bg-white/10 backdrop-blur-lg border-2 border-purple-400/30 rounded-2xl p-4 sm:p-6 shadow-[inset_0_0_50px_5px_rgba(255,255,255,0.5)]">
           <MoonlightMeter scores={personalityScores} />
         </div>
-
 
         <div className="text-center space-y-4">
           <Button 
             onClick={onRestart}
             size="lg"
-            className="w-full py-4 sm:py-6 text-base sm:text-lg border-2 border-white bg-gradient-to-r from-blue-400 to-indigo-400 text-white hover:from-blue-700 hover:to-indigo-700 font-bold uppercase"
+            className="w-full py-3 sm:py-6 text-xs sm:text-lg border-2 border-white bg-gradient-to-r from-blue-400 to-indigo-400 text-white hover:from-blue-700 hover:to-indigo-700 font-bold uppercase"
           >
             ← RETURN TO MAIN PAGE
           </Button>
@@ -180,8 +169,7 @@ export function ResultCard({ name, personality, onRestart, onAdminAccess, answer
             <Button 
               onClick={onAdminAccess}
               size="lg"
-              variant="outline"
-              className="w-full px-12 py-6 text-lg border-2 border-indigo-700 text-indigo-700 bg-indigo-300/60 hover:bg-indigo-300 font-bold uppercase"
+              className="w-full px-6 sm:px-12 py-3 sm:py-6 text-xs sm:text-lg border-2 border-indigo-700 text-indigo-700 bg-indigo-300/60 hover:bg-indigo-300 font-bold uppercase"
             >
               🔒 ADMIN ACCESS
             </Button>

@@ -8,6 +8,17 @@
   --color-aria: #BDA073;
   --color-sonnet: #BD738A;
   --color-canon: #7397BD;
+
+  --text-tiny: 0.625rem;
+  --text-tiny--line-height: 1.5rem; 
+  --text-tiny--letter-spacing: 0.125rem; 
+  --text-tiny--font-weight: 500;
+  
+  /* Add a utility class for it */
+  --font-size-tiny: 0.625rem;
+  --leading-tiny: 1.5rem;
+  --tracking-tiny: 0.125rem;
+  --font-weight-tiny: 500;
 }
 
 @layer base {
@@ -17,5 +28,13 @@
 
   h1, h2, h3, h4 {
     font-family: 'Genshin Impact', 'Merriweather', serif;
+  }
+}
+
+@layer utilities {
+  .text-tiny {
+    font-size: 0.625rem;
+    letter-spacing: 0.125rem;
+    font-weight: 500;
   }
 }

@@ -38,7 +38,7 @@ export function NameInput({ onSubmit }: NameInputProps) {
             className="text-3xl sm:text-4xl text-white mb-2 sm:mb-3 animate-floatUpDown"
             style={{ 
                 fontFamily: "'Genshin Drip', Merriweather, serif",
-                textShadow: '0 0 20px rgba(167, 139, 250, 0.8), 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(124, 58, 237, 0.4)',
+                textShadow: '0 0 20px rgba(167, 139, 250, 0.3), 0 0 40px rgba(139, 92, 246, 0.2), 0 0 60px rgba(124, 58, 237, 0.1)',
                 WebkitTextStroke: '2px #569eff',
                 paintOrder: 'stroke fill',
                 letterSpacing: '0.05em'
@@ -51,7 +51,7 @@ export function NameInput({ onSubmit }: NameInputProps) {
             <p className="text-white text-xs sm:text-sm tracking-wide"
             style={{ 
                 fontFamily: "'Genshin Impact', Merriweather, serif",
-                textShadow: '0 0 20px rgba(167, 139, 250, 0.8), 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(124, 58, 237, 0.4)',
+                textShadow: '0 0 20px rgba(167, 139, 250, 0.3), 0 0 40px rgba(139, 92, 246, 0.2), 0 0 60px rgba(124, 58, 237, 0.1)',
                 WebkitTextStroke: '2px #5B21B6',
                 paintOrder: 'stroke fill',
                 letterSpacing: '0.05em',
@@ -62,7 +62,6 @@ export function NameInput({ onSubmit }: NameInputProps) {
             <p className="text-purple-300 italic text-xs mt-2"
             style={{ 
                 fontFamily: "'Genshin Impact', Merriweather, serif",
-                textShadow: '0 0 20px rgba(167, 139, 250, 0.8), 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(124, 58, 237, 0.4)',
                 WebkitTextStroke: '2px #5B21B6',
                 paintOrder: 'stroke fill',
                 letterSpacing: '0.05em',
@@ -100,7 +99,6 @@ export function NameInput({ onSubmit }: NameInputProps) {
             <div className="space-y-2 sm:space-y-3">
               <Label htmlFor="name" className="text-white uppercase tracking-wider text-xs sm:text-sm" style={{ 
                 fontFamily: "'Genshin Impact', Merriweather, serif",
-                textShadow: '0 0 20px rgba(167, 139, 250, 0.8), 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(124, 58, 237, 0.4)',
                 WebkitTextStroke: '2px #5B21B6',
                 paintOrder: 'stroke fill',
                 letterSpacing: '0.05em',
@@ -124,22 +122,21 @@ export function NameInput({ onSubmit }: NameInputProps) {
               className="w-full py-4 sm:py-6 text-base sm:text-lg border-2 border-white bg-gradient-to-r from-blue-400 to-indigo-400 text-white hover:from-blue-700 hover:to-indigo-700 font-bold uppercase"
               disabled={!name.trim()}
             >
-              ▶ START QUEST
+              ⟣ START QUEST
             </Button>
             
           </form>
           
 
           <div className="text-center mt-4 sm:mt-6">
-            <p className="text-purple-300 text-xs px-2" style={{ 
-                fontFamily: "'Genshin Impact', Merriweather, serif",
-                textShadow: '0 0 20px rgba(167, 139, 250, 0.8), 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(124, 58, 237, 0.4)',
+            <p className="text-gray-300 text-tiny px-2 italic" style={{ 
+                fontFamily: "'Genshin Impact', Merriweather, serif",                
                 WebkitTextStroke: '2px #5B21B6',
                 paintOrder: 'stroke fill',
                 letterSpacing: '0.05em',
             }} >
-              To report any issues with this website and quiz, please message <span className="font-italic text-white">@nxgisa.exe</span> on Discord
-
+              To report any issues with this website and quiz, please message <span className="font-italic text-white">@nxgisa.exe</span> on Discord.
+              Please note that this website is not affiliated with HoYoverse in any way, and this is a fan-made project created for entertainment purposes only. ChudBina Sprites and the icon of the 3 moons in the end result card screen are illustrated by <span className="font-italic text-white">@nxgisa.exe</span>, but any other assets are sourced directly from HoYoverse's official media. All rights reserved to their respective owners.
             </p>
           </div>
         </div>
