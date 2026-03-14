@@ -1,0 +1,21 @@
+:root {
+  --color-aria: #BDA073;
+  --color-sonnet: #BD738A;
+  --color-canon: #7397BD;
+}
+
+@theme inline {
+  --color-aria: #BDA073;
+  --color-sonnet: #BD738A;
+  --color-canon: #7397BD;
+}
+
+@layer base {
+  body {
+    font-family: 'Genshin Impact', 'Merriweather', serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Genshin Impact', 'Merriweather', serif;
+  }
+}
