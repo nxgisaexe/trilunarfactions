@@ -1,5 +1,5 @@
 import { Button } from './ui/button';
-import spriteCharacter from '../assets/images/ChudBinaDefault.png';
+import ChudBinaSprite from '../assets/images/ChudBinaDefault.png';
 import moonsBackground from '../assets/images/moons-background.png';
 
 interface IntroScreenProps {
@@ -17,10 +17,10 @@ export function IntroScreen({ onContinue }: IntroScreenProps) {
       }}>
       
       <div className="w-full max-w-2xl relative z-10">
-        {/* Flavour Text Box with Sprite */}
+
                <div className="shadow-[inset_0_0_50px_5px_rgba(255,255,255,0.5)] mb-8 bg-white/10 backdrop-blur-lg border-2 border-purple-400/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
           <img 
-            src={spriteCharacter} 
+            src={ChudBinaSprite} 
             alt="ChudBinaDefault"
             className="h-32 sm:h-48 w-auto object-contain opacity-95 flex-shrink-0 animate-floatUpDown"
             style={{
@@ -28,7 +28,7 @@ export function IntroScreen({ onContinue }: IntroScreenProps) {
             }}
           />
           
-          {/* Text container - stacks vertically */}
+
           <div className="flex flex-col gap-3">
             <p className="animate-floatUpDown text-2xl sm:text-1xl leading-relaxed italic" 
                   style={{ 
@@ -49,7 +49,6 @@ export function IntroScreen({ onContinue }: IntroScreenProps) {
           </div>
         </div>
 
-        {/* Continue Button */}
         <div className="text-center">
           <Button 
             onClick={onContinue}
