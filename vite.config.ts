@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/trilunarfactions/' : '/',
+  base: '/trilunarfactions/',
   plugins: [
     react(),
     tailwindcss(),
@@ -18,4 +18,5 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
   },
+  publicDir: 'public',
 })
