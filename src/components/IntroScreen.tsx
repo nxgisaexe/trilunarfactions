@@ -1,6 +1,6 @@
 import { Button } from './ui/button';
-import ChudBinaSprite from '../assets/images/ChudBinaDefault.png';
-import moonsBackground from '../assets/images/moons-background.png';
+import ChudBinaSprite from '../assets/images/ChudBinaDefault.webp';
+import moonsBackground from '../assets/images/moons-background.webp';
 
 interface IntroScreenProps {
   onContinue: () => void;

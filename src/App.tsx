@@ -20,12 +20,17 @@ export default function App() {
   const [answers, setAnswers] = useState<Personality[]>([]);
 
 const handleStartQuiz = () => {
-    setStage('name');
-  };
+  setCurrentQuestionIndex(0);
+  setAnswers([]);
+  setStage('name');
+};
+
 
   const handleNameSubmit = (name: string) => {
-    setUserName(name);
-    setStage('quiz');
+  setUserName(name);
+  setCurrentQuestionIndex(0);  // Explicitly reset index
+  setAnswers([]);  // Explicitly reset answers
+  setStage('quiz');
   };
 
   const handleAnswer = (personality: Personality) => {
@@ -91,11 +96,11 @@ const handleStartQuiz = () => {
   };
 
   const handleRestart = () => {
-    setStage('name');
-    setUserName('');
-    setCurrentQuestionIndex(0);
-    setAnswers([]);
-  };
+  setCurrentQuestionIndex(0);
+  setAnswers([]);
+  setUserName('');
+  setStage('name');
+};
 
   const handleAdminAccess = () => {
     setStage('admin');

@@ -1,10 +1,10 @@
 import { Button } from './ui/button';
 import { MoonlightMeter } from './MoonlightMeter';
-import moonsBackground from '../assets/images/moons-background.png';
-import ariaIcon from '../assets/images/triluneAria.png';
-import sonnetIcon from '../assets/images/triluneSonnet.png';
-import canonIcon from '../assets/images/triluneCanon.png';
-import chudbinHappy from '../assets/images/ChudBinaHappy.png';
+import moonsBackground from '../assets/images/moons-background.webp';
+import ariaIcon from '../assets/images/triluneAria.webp';
+import sonnetIcon from '../assets/images/triluneSonnet.webp';
+import canonIcon from '../assets/images/triluneCanon.webp';
+import chudbinHappy from '../assets/images/ChudBinaHappy.webp';
 
 interface ResultCardProps {
   name: string;
@@ -80,7 +80,7 @@ export function ResultCard({ name, personality, onRestart, onAdminAccess, answer
                 <div className="mb-4 sm:mb-6 rounded-2xl p-4 sm:p-6 flex flex-row sm:flex-row items-start gap-4">
           <div className="text-center items-center justify-center">
             <p 
-              className="text-xl sm:text-4xl text-white animate-floatUpDown"
+              className="text-xl text-center sm:text-4xl text-white animate-floatUpDown"
               style={{ 
                 fontFamily: "'Genshin Drip', Merriweather, serif",
                 WebkitTextStroke: '1px #569eff',

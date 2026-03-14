@@ -2,8 +2,8 @@ import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Progress } from './ui/progress';
 import type { Question } from './questions';
-import frostmoonreborn from '../assets/images/frostmoonreborn.png';
-import worldquest from '../assets/images/icon_wq.png';
+import frostMoonReborn from '../assets/images/frostmoonreborn.webp';
+import worldquest from '../assets/images/icon_wq.webp';
 
 interface QuizQuestionProps {
   question: Question;
@@ -23,7 +23,7 @@ export function QuizQuestion({
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-b from-purple-900 via-blue-900 to-indigo-900"
       style={{
-        backgroundImage: `url(${frostmoonreborn})`,
+        backgroundImage: `url(${frostMoonReborn})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

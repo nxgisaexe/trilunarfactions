@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
-import moonsBackground from '../assets/images/moons-background.png';
-import spriteCharacter from '../assets/images/ChudBinaDefault.png';
+import moonsBackground from '../assets/images/moons-background.webp';
+import spriteCharacter from '../assets/images/ChudBinaDefault.webp';
 
 interface NameInputProps {
   onSubmit: (name: string) => void;
