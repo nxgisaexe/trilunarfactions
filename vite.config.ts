@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/trilunarfactions/',
+  base: process.env.NODE_ENV === 'production' ? '/trilunarfactions/' : '/',
   plugins: [
     react(),
     tailwindcss(),
