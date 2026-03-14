@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Eye, EyeOff, Lock } from 'lucide-react';
 
-const ADMIN_PASSWORD = 'admin123';
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'admin123';
 const GOOGLE_SHEET_EMBED_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT6YZAZ6q6upGWJVcC6er8W6odleAr-6EnH1q7i1UHfM-EsdlE2LB443E-fQmohFFCiBGmw9g7lcrWl/pubhtml';
 
 interface AdminPanelProps {
@@ -70,7 +70,7 @@ export function AdminPanel({ onBack }: AdminPanelProps) {
 
             <Button
               type="submit"
-               className="w-full py-4 sm:py-6 text-base sm:text-lg border-2 border-white bg-gradient-to-r from-blue-400 to-indigo-400 text-white hover:from-blue-700 hover:to-indigo-700 font-bold uppercase"
+              className="w-full py-4 sm:py-6 text-base sm:text-lg border-2 border-white bg-gradient-to-r from-blue-400 to-indigo-400 text-white hover:from-blue-700 hover:to-indigo-700 font-bold uppercase"
             >
               Login
             </Button>
