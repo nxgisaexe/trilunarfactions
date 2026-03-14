@@ -3,6 +3,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Eye, EyeOff, Lock } from 'lucide-react';
 
+const ADMIN_PASSWORD = 'admin123';
 const GOOGLE_SHEET_EMBED_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT6YZAZ6q6upGWJVcC6er8W6odleAr-6EnH1q7i1UHfM-EsdlE2LB443E-fQmohFFCiBGmw9g7lcrWl/pubhtml';
 
 interface AdminPanelProps {
@@ -14,33 +15,16 @@ export function AdminPanel({ onBack }: AdminPanelProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    setLoading(true);
 
-    try {
-      const response = await fetch('/api/verify-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
-      });
-      
-      const data = await response.json();
-      if (data.success) {
-        setIsAuthenticated(true);
-        setPassword('');
-      } else {
-        setError('❌ incorrect password');
-        setPassword('');
-      }
-    } catch (error) {
-      console.error('Error verifying password:', error);
-      setError('⚠️ error connecting to server');
-    } finally {
-      setLoading(false);
+    if (password === ADMIN_PASSWORD) {
+      setIsAuthenticated(true);
+    } else {
+      setError('Incorrect password');
+      setPassword('');
     }
   };
 
@@ -70,13 +54,11 @@ export function AdminPanel({ onBack }: AdminPanelProps) {
                   className="w-full bg-white/10 border-purple-400/30 text-white placeholder:text-white/50 pr-10"
                   placeholder="Admin password..."
                   autoFocus
-                  disabled={loading}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-purple-300 hover:text-purple-200"
-                  disabled={loading}
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -88,10 +70,9 @@ export function AdminPanel({ onBack }: AdminPanelProps) {
 
             <Button
               type="submit"
-              disabled={loading}
-              className="w-full py-4 sm:py-6 text-base sm:text-lg border-2 border-white bg-gradient-to-r from-blue-400 to-indigo-400 text-white hover:from-blue-700 hover:to-indigo-700 font-bold uppercase disabled:opacity-50"
+               className="w-full py-4 sm:py-6 text-base sm:text-lg border-2 border-white bg-gradient-to-r from-blue-400 to-indigo-400 text-white hover:from-blue-700 hover:to-indigo-700 font-bold uppercase"
             >
-              {loading ? 'Verifying...' : 'Login'}
+              Login
             </Button>
           </form>
 
@@ -99,7 +80,6 @@ export function AdminPanel({ onBack }: AdminPanelProps) {
             onClick={onBack}
             variant="ghost"
             className="w-full mt-4 text-purple-200 hover:text-purple-100 hover:bg-white/5"
-            disabled={loading}
           >
             ← Return
           </Button>
