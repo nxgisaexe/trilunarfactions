@@ -136,7 +136,7 @@ export function NameInput({ onSubmit }: NameInputProps) {
                 letterSpacing: '0.05em',
             }} >
               To report any issues with this website and quiz, please message <span className="font-italic text-white">@nxgisa.exe</span> on Discord.
-              Please note that this website is not affiliated with HoYoverse in any way, and this is a fan-made project created for entertainment purposes only. ChudBina Sprites and the icons of the 3 moons in the end result card screen are illustrated by <span className="font-italic text-white">@nxgisa.exe</span>, but any other assets are sourced directly from HoYoverse's official media. All rights reserved to their respective owners.
+              Please note that this website is not affiliated with HoYoverse in any way, and this is a fan-made project created for entertainment purposes only. ChudBina Sprites and the icons of the 3 moons in the end result card screen are illustrated by <span className="font-italic text-white">@nxgisa.exe</span>, and website cursors were made by <span className="font-italic text-white">fegrifo</span> and published on 23/12/2025 under the 'Release to Public Domain' license, but any other assets are sourced directly from HoYoverse's official media. All rights reserved to their respective owners.
             </p>
           </div>
         </div>

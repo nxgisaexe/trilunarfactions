@@ -1,0 +1,13 @@
+:root {
+  cursor: url('../assets/cursors/gi_arrow.png'), auto;
+}
+
+a, button {
+  cursor: url('../assets/cursors/gi_link.png'), pointer;
+}
+
+body.loading {
+  cursor: url('../assets/cursors/gi_busy.png'), auto;
+}
+
+/* cursors released to public domain by fegrifo on 23/12/2025 */

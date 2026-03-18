@@ -96,8 +96,8 @@ export function AdminPanel({ onBack }: AdminPanelProps) {
         </h1>
         <Button
           onClick={onBack}
-          className="bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white font-bold"
-        >
+          className="w-full py-3 sm:py-6 text-xs sm:text-lg border-2 border-white bg-gradient-to-r from-blue-400 to-indigo-400 text-white hover:from-blue-700 hover:to-indigo-700 font-bold uppercase"
+          >
           ← Return
         </Button>
       </div>

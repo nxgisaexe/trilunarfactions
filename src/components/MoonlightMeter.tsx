@@ -45,7 +45,7 @@ export function MoonlightMeter({ scores, className }: MoonlightMeterProps) {
               className={cn(`h-full bg-gradient-to-r ${color} transition-all duration-700 ease-out shadow-lg`)}
               style={{ width: `${scores[name as keyof typeof scores]}%` }}
             />
-          </div>
+          </div>          
         </div>
       ))}
     </div>

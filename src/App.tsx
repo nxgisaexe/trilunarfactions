@@ -7,7 +7,6 @@ import { AdminPanel } from './components/AdminPanel';
 import { RippleEffect } from './components/RippleEffect';
 import { questions } from './components/questions';
 
-
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPgWVqre7Bie_m0OAsSX7yst9AVyRsWvbLOVY-JrDAIx1B-097IJ3kgdQwxq8L6Pbd/exec';
 
 type Personality = 'Aria' | 'Sonnet' | 'Canon';
@@ -18,36 +17,41 @@ export default function App() {
   const [userName, setUserName] = useState('');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Personality[]>([]);
+  const [personality, setPersonality] = useState<Personality>('Aria');
 
-const handleStartQuiz = () => {
-  setCurrentQuestionIndex(0);
-  setAnswers([]);
-  setStage('name');
-};
-
+  const handleStartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setAnswers([]);
+    setStage('name');
+  };
 
   const handleNameSubmit = (name: string) => {
-  setUserName(name);
-  setCurrentQuestionIndex(0);  // Explicitly reset index
-  setAnswers([]);  // Explicitly reset answers
-  setStage('quiz');
+    setUserName(name);
+    setCurrentQuestionIndex(0);
+    setAnswers([]);
+    setStage('quiz');
   };
 
-  const handleAnswer = (personality: Personality) => {
-    const newAnswers = [...answers, personality];
-    setAnswers(newAnswers);
+  const calculateResult = (finalAnswers: Personality[]): Personality => {
+    const counts: Record<Personality, number> = {
+      Aria: 0,
+      Sonnet: 0,
+      Canon: 0
+    };
 
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      storeQuizResult(newAnswers);
-      setStage('result');
-    }
+    finalAnswers.forEach(answer => {
+      counts[answer]++;
+    });
+
+    const maxCount = Math.max(...Object.values(counts));
+    const tied = (Object.keys(counts) as Personality[]).filter(
+      key => counts[key] === maxCount
+    );
+    return tied[Math.floor(Math.random() * tied.length)];
   };
 
-  const storeQuizResult = async (finalAnswers: Personality[]) => {
+  const storeQuizResult = async (finalAnswers: Personality[], result: Personality) => {
     try {
-      const result = calculateResult(finalAnswers);
       const timestamp = new Date().toISOString();
 
       await fetch(GOOGLE_SCRIPT_URL, {
@@ -70,37 +74,28 @@ const handleStartQuiz = () => {
     }
   };
 
-  const calculateResult = (finalAnswers?: Personality[]): Personality => {
-    const answersToUse = finalAnswers || answers;
-    const counts: Record<Personality, number> = {
-      Aria: 0,
-      Sonnet: 0,
-      Canon: 0
-    };
+  const handleAnswer = (personality: Personality) => {
+    const newAnswers = [...answers, personality];
+    setAnswers(newAnswers);
 
-    answersToUse.forEach(answer => {
-      counts[answer]++;
-    });
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
 
-    let maxPersonality: Personality = 'Aria';
-    let maxCount = 0;
-
-    (Object.keys(counts) as Personality[]).forEach(key => {
-      if (counts[key] > maxCount) {
-        maxCount = counts[key];
-        maxPersonality = key;
-      }
-    });
-
-    return maxPersonality;
+      const result = calculateResult(newAnswers);
+      setPersonality(result);
+      storeQuizResult(newAnswers, result);
+      setStage('result');
+    }
   };
 
   const handleRestart = () => {
-  setCurrentQuestionIndex(0);
-  setAnswers([]);
-  setUserName('');
-  setStage('name');
-};
+    setCurrentQuestionIndex(0);
+    setAnswers([]);
+    setUserName('');
+    setPersonality('Aria');
+    setStage('name');
+  };
 
   const handleAdminAccess = () => {
     setStage('admin');
@@ -152,16 +147,15 @@ const handleStartQuiz = () => {
     );
   }
 
-
   return (
     <RippleEffect>
       <ResultCard
         name={userName}
-        personality={calculateResult()}
+        personality={personality}
         answers={answers}
         onRestart={handleRestart}
         onAdminAccess={handleAdminAccess}
       />
     </RippleEffect>
   );
-  }
+}
