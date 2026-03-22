@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { IntroScreen } from './components/IntroScreen';
+
 import { NameInput } from './components/NameInput';
 import { QuizQuestion } from './components/QuizQuestion';
 import { ResultCard } from './components/ResultCard';
 import { AdminPanel } from './components/AdminPanel';
 import { RippleEffect } from './components/RippleEffect';
+import { AudioControls } from './components/AudioControls';
 import { questions } from './components/questions';
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPgWVqre7Bie_m0OAsSX7yst9AVyRsWvbLOVY-JrDAIx1B-097IJ3kgdQwxq8L6Pbd/exec';
@@ -112,6 +114,7 @@ export default function App() {
   if (stage === 'intro') {
     return (
       <RippleEffect>
+        <AudioControls audioSource="/trilunarfactions/audio/background-music.mp3" />
         <IntroScreen onContinue={handleStartQuiz} />
       </RippleEffect>
     );
@@ -120,6 +123,7 @@ export default function App() {
   if (stage === 'name') {
     return (
       <RippleEffect>
+        <AudioControls audioSource="/trilunarfactions/audio/background-music.mp3" />
         <div className="relative">
           <NameInput onSubmit={handleNameSubmit} />
           <button
@@ -137,6 +141,7 @@ export default function App() {
   if (stage === 'quiz') {
     return (
       <RippleEffect>
+        <AudioControls audioSource="/trilunarfactions/audio/background-music.mp3" />
         <QuizQuestion
           question={questions[currentQuestionIndex]}
           currentQuestion={currentQuestionIndex + 1}
@@ -149,6 +154,7 @@ export default function App() {
 
   return (
     <RippleEffect>
+      <AudioControls audioSource="/trilunarfactions/audio/background-music.mp3" />
       <ResultCard
         name={userName}
         personality={personality}

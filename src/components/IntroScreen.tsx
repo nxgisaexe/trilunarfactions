@@ -33,17 +33,22 @@ export function IntroScreen({ onContinue }: IntroScreenProps) {
             <p className="animate-floatUpDown text-2xl sm:text-1xl leading-relaxed italic" 
                   style={{ 
                   fontFamily: "'Genshin Impact', Merriweather, serif",
-                  textShadow: `
-                    0 0 10px rgba(167, 139, 250, 0.8),
-                    0 0 20px rgba(139, 92, 246, 0.7),
-                    0 0 30px rgba(124, 58, 237, 0.6),
-                  `,
                   WebkitTextStroke: '2px #5B21B6',
                   paintOrder: 'stroke fill',
                   letterSpacing: '0.05em',
                   color: '#E9D5FF',
               }}>
               Oh? Another soul drawn to the moon, how interesting...
+            </p>
+            <p className="animate-floatUpDown text-tiny sm:text-tiny leading-relaxed italic" 
+                  style={{ 
+                  fontFamily: "'Genshin Impact', Merriweather, serif",
+                  WebkitTextStroke: '2px #5B21B6',
+                  paintOrder: 'stroke fill',
+                  letterSpacing: '0.05em',
+                  color: '#E9D5FF',
+              }}>
+              By the way, there's some background music. If you would like to hear it, you can toggle the mute & unmute button onscreen a few times and it should work!
             </p>
             
           </div>
