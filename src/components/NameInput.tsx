@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
+import { WavyText } from './WavyText';
 import moonsBackground from '../assets/images/moons-background.webp';
 import spriteCharacter from '../assets/images/ChudBinaDefault.webp';
 
@@ -83,14 +84,14 @@ export function NameInput({ onSubmit }: NameInputProps) {
             }}
           />
           
-          <p className="text-blue-200 text-xs sm:text-sm leading-relaxed italic flex-1 animate-floatUpDown " style={{ 
+          <p className="text-blue-200 text-xs sm:text-sm leading-relaxed italic flex-1" style={{ 
             fontFamily: "'Genshin Impact', Merriweather, serif",
             textShadow: '0 0 10px rgba(167, 139, 250, 0.5)',
             WebkitTextStroke:'2px #569eff',
             paintOrder: 'stroke fill',
             letterSpacing: '0.05em',
           }}>
-            <span className="font-italic text-white">Speak your name,</span> and the night will decide which sister watches over you...
+            <WavyText text="Speak your name, and the night will decide which sister watches over you..." delay={150} />
           </p>
           
        </div> </div>

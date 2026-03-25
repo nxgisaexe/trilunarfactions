@@ -1,4 +1,5 @@
 import { Button } from './ui/button';
+import { WavyText } from './WavyText';
 import ChudBinaSprite from '../assets/images/ChudBinaDefault.webp';
 import moonsBackground from '../assets/images/moons-background.webp';
 
@@ -30,7 +31,7 @@ export function IntroScreen({ onContinue }: IntroScreenProps) {
           
 
           <div className="flex flex-col gap-3">
-            <p className="animate-floatUpDown text-2xl sm:text-1xl leading-relaxed italic" 
+            <p className="text-2xl sm:text-1xl leading-relaxed italic" 
                   style={{ 
                   fontFamily: "'Genshin Impact', Merriweather, serif",
                   WebkitTextStroke: '2px #5B21B6',
@@ -38,9 +39,9 @@ export function IntroScreen({ onContinue }: IntroScreenProps) {
                   letterSpacing: '0.05em',
                   color: '#E9D5FF',
               }}>
-              Oh? Another soul drawn to the moon, how interesting...
+              <WavyText text="Oh? Another soul drawn to the moon, how interesting..." delay={200} />
             </p>
-            <p className="animate-floatUpDown text-tiny sm:text-tiny leading-relaxed italic" 
+            <p className="text-tiny sm:text-tiny leading-relaxed italic" 
                   style={{ 
                   fontFamily: "'Genshin Impact', Merriweather, serif",
                   WebkitTextStroke: '2px #5B21B6',

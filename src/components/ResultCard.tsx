@@ -1,9 +1,10 @@
 import { Button } from './ui/button';
+import { WavyText } from './WavyText';
 import { MoonlightMeter } from './MoonlightMeter';
 import moonsBackground from '../assets/images/moons-background.webp';
-import ariaIcon from '../assets/images/triluneAria.webp';
-import sonnetIcon from '../assets/images/triluneSonnet.webp';
-import canonIcon from '../assets/images/triluneCanon.webp';
+import ariaIcon from '../assets/images/TriLuneAria.webp';
+import sonnetIcon from '../assets/images/TriLuneSonnet.webp';
+import canonIcon from '../assets/images/TriLuneCanon.webp';
 import chudbinHappy from '../assets/images/ChudBinaHappy.webp';
 
 interface ResultCardProps {
@@ -103,12 +104,12 @@ export function ResultCard({ name, personality, onRestart, onAdminAccess, answer
             }}
           />
           <div className="flex flex-col gap-3">
-            <p className="animate-floatUpDown text-purple-50 leading-snug text-xs sm:text-sm italic" style={{ 
+            <p className="text-purple-50 leading-snug text-xs sm:text-sm italic" style={{ 
               fontFamily: "'Genshin Impact', Merriweather, serif",
               WebkitTextStroke: `1px #5B21B6`,
               paintOrder: 'stroke fill'
             }}>
-              {data.description}
+              <WavyText text={data.description} delay={100} />
             </p>
           </div>
         </div>

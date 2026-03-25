@@ -257,3 +257,28 @@
 .delay-1000 {
   animation-delay: 1000ms;
 }
+
+/* Wavy Text Animation */
+@keyframes wavy {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.wavy-text-container {
+  display: inline;
+  word-break: break-word;
+}
+
+.wavy-char {
+  display: inline-block;
+  animation: wavy 1.3s ease-in-out infinite;
+  position: relative;
+  white-space: pre-wrap;
+}
