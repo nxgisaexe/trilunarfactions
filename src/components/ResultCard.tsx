@@ -18,7 +18,7 @@ interface ResultCardProps {
 const personalityData = {
   Aria: {
     title: "Eternal Moonchild",
-    description: "You now follow Aria, a natural leader among the sisters. Let your empathy and unwavering bravery carve your journey. Change does not frighten you, instead, it beckons you to learn and grow with it. You believe the future is worth protecting, even if it costs some sacrifices of your own. Carry your melody forward, child of the eternal moon.",
+    description: "You now follow <wiggle>Aria</wiggle>, a natural leader among the sisters. Let your empathy and unwavering bravery carve your journey. Change does not frighten you, instead, it beckons you to learn and grow with it. You believe the future is worth protecting, even if it costs some sacrifices of your own. <wiggle>Carry your melody forward, child of the eternal moon.</wiggle>",
     bgColor: "#BDA073",
     strokeColor: "#8B7055",
     accentColor: "#FFB347",
@@ -26,7 +26,7 @@ const personalityData = {
   },
   Sonnet: {
     title: "Iridescent Moonchild",
-    description: "You now follow Sonnet, whose light flickers softly among the sisters. Your path is forged through preservation and passion in your adventures. Like a ripple across still water, let your journey impact the world and the people you encounter along the way. Go on, child of the iridescent moon, and do not let fear eclipse your light.",
+    description: "You now follow <wiggle>Sonnet</wiggle>, whose light flickers softly among the sisters. Your path is forged through preservation and passion in your adventures. Like a ripple across still water, let your journey impact the world and the people you encounter along the way. <wiggle>Go on, child of the iridescent moon, and do not let fear eclipse your light.</wiggle>",
     bgColor: "#BD738A",
     strokeColor: "#9B5A6D",
     accentColor: "#818CF8",
@@ -34,7 +34,7 @@ const personalityData = {
   },
   Canon: {
     title: "Frost Moonchild",
-    description: "You now follow Canon, who shone the brightest among the sisters. In your pursuit for clarity, you tend to be inquisitive, and have a great desire to fathom the ways of the world. Consequently, you uncover hidden truths that others may overlook. Like moonlight upon frost, let your wisdom and resolve carry you through your path ahead. Walk forth, child of the frost moon.",
+    description: "You now follow <wiggle>Canon</wiggle>, who shone the brightest among the sisters. In your pursuit for clarity, you tend to be inquisitive, and have a great desire to fathom the ways of the world. Consequently, you uncover hidden truths that others may overlook. Like moonlight upon frost, let your wisdom and resolve carry you through your path ahead. <wiggle>Walk forth, child of the frost moon.</wiggle>",
     bgColor: "#7397BD",
     strokeColor: "#5A7A9B",
     accentColor: "#34D399",

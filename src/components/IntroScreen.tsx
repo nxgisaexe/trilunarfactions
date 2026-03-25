@@ -39,7 +39,7 @@ export function IntroScreen({ onContinue }: IntroScreenProps) {
                   letterSpacing: '0.05em',
                   color: '#E9D5FF',
               }}>
-              <WavyText text="Oh? Another soul drawn to the moon, how interesting..." delay={200} />
+              <WavyText text="Oh? Another soul drawn to the moon, how <wiggle>interesting</wiggle>..."/>
             </p>
             <p className="text-tiny sm:text-tiny leading-relaxed italic" 
                   style={{ 

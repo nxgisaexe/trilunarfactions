@@ -91,7 +91,7 @@ export function NameInput({ onSubmit }: NameInputProps) {
             paintOrder: 'stroke fill',
             letterSpacing: '0.05em',
           }}>
-            <WavyText text="Speak your name, and the night will decide which sister watches over you..." delay={150} />
+            <WavyText text="<wiggle>Speak your name</wiggle>, and the night will decide which sister watches over you..." />
           </p>
           
        </div> </div>

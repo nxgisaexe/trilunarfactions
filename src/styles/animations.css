@@ -258,27 +258,62 @@
   animation-delay: 1000ms;
 }
 
-/* Wavy Text Animation */
+/* Wavy Text Animations - whatever this is bruh */
 @keyframes wavy {
-  0% {
+  0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes wavyOnce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes revealWord {
+  0% {
+    opacity: 0;
   }
   100% {
-    transform: translateY(0);
+    opacity: 1;
   }
 }
 
 .wavy-text-container {
   display: inline;
-  word-break: break-word;
+  white-space: normal;
+  line-height: 1.6;
+}
+
+.wavy-word {
+  display: inline;
+  white-space: nowrap;
+  opacity: 0;
+  animation: revealWord 0.1s ease-out forwards;
+  animation-delay: calc(var(--word-index) * 500ms - 100ms);
 }
 
 .wavy-char {
   display: inline-block;
-  animation: wavy 1.3s ease-in-out infinite;
-  position: relative;
-  white-space: pre-wrap;
+
+  animation: wavyOnce 0.8s ease-in-out 1 forwards;
+  will-change: transform;
+
+  animation-delay: calc(var(--word-index) * 500ms);
+}
+
+.wavy-word--wiggle .wavy-char {
+  animation: wavy 0.8s ease-in-out infinite;
+  animation-delay: calc(var(--word-index) * 500ms + var(--char-index) * 30ms);
+}
+
+.wavy-space {
+  display: inline;
 }
