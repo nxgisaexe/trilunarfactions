@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { IntroScreen } from './components/IntroScreen';
 import { NameInput } from './components/NameInput';
 import { QuizQuestion } from './components/QuizQuestion';
+import { IntermissionScreen } from './components/IntermissionScreen';
 import { ResultCard } from './components/ResultCard';
 import { AdminPanel } from './components/AdminPanel';
 import { RippleEffect } from './components/RippleEffect';
@@ -12,7 +13,7 @@ import { questions } from './components/questions';
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPgWVqre7Bie_m0OAsSX7yst9AVyRsWvbLOVY-JrDAIx1B-097IJ3kgdQwxq8L6Pbd/exec';
 
 type Personality = 'Aria' | 'Sonnet' | 'Canon';
-type Stage = 'intro' | 'name' | 'quiz' | 'result' | 'admin';
+type Stage = 'intro' | 'name' | 'quiz' | 'intermission' | 'result' | 'admin';
 
 export default function App() {
   const [stage, setStage] = useState<Stage>('intro');
@@ -20,6 +21,7 @@ export default function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Personality[]>([]);
   const [personality, setPersonality] = useState<Personality>('Aria');
+  const [showingResult, setShowingResult] = useState(false);
 
   useClickSound();
 
@@ -85,12 +87,19 @@ export default function App() {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-
       const result = calculateResult(newAnswers);
       setPersonality(result);
       storeQuizResult(newAnswers, result);
-      setStage('result');
+      setStage('intermission');
     }
+  };
+
+  const handleIntermissionContinue = () => {
+    setShowingResult(true);
+    setTimeout(() => {
+      setStage('result');
+      setShowingResult(false);
+    }, 500);
   };
 
   const handleRestart = () => {
@@ -149,6 +158,27 @@ export default function App() {
           currentQuestion={currentQuestionIndex + 1}
           totalQuestions={questions.length}
           onAnswer={handleAnswer}
+        />
+      </RippleEffect>
+    );
+  }
+
+  if (stage === 'intermission') {
+    return (
+      <RippleEffect>
+        <AudioControls audioSource="/trilunarfactions/audio/background-music.mp3" />
+        <IntermissionScreen
+          personality={personality}
+          onContinue={handleIntermissionContinue}
+          showResult={showingResult ? (
+            <ResultCard
+              name={userName}
+              personality={personality}
+              answers={answers}
+              onRestart={handleRestart}
+              onAdminAccess={handleAdminAccess}
+            />
+          ) : undefined}
         />
       </RippleEffect>
     );
