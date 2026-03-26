@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { IntroScreen } from './components/IntroScreen';
-
 import { NameInput } from './components/NameInput';
 import { QuizQuestion } from './components/QuizQuestion';
 import { ResultCard } from './components/ResultCard';
 import { AdminPanel } from './components/AdminPanel';
 import { RippleEffect } from './components/RippleEffect';
 import { AudioControls } from './components/AudioControls';
+import { useClickSound } from './hooks/useClickSound';
 import { questions } from './components/questions';
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPgWVqre7Bie_m0OAsSX7yst9AVyRsWvbLOVY-JrDAIx1B-097IJ3kgdQwxq8L6Pbd/exec';
@@ -20,6 +20,8 @@ export default function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Personality[]>([]);
   const [personality, setPersonality] = useState<Personality>('Aria');
+
+  useClickSound();
 
   const handleStartQuiz = () => {
     setCurrentQuestionIndex(0);

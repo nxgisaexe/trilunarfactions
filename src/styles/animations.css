@@ -297,7 +297,7 @@
   white-space: nowrap;
   opacity: 0;
   animation: revealWord 0.1s ease-out forwards;
-  animation-delay: calc(var(--word-index) * 500ms - 100ms);
+  animation-delay: calc(var(--word-index) * 200ms - 100ms);
 }
 
 .wavy-char {
@@ -306,12 +306,12 @@
   animation: wavyOnce 0.8s ease-in-out 1 forwards;
   will-change: transform;
 
-  animation-delay: calc(var(--word-index) * 500ms);
+  animation-delay: calc(var(--word-index) * 200ms);
 }
 
 .wavy-word--wiggle .wavy-char {
   animation: wavy 0.8s ease-in-out infinite;
-  animation-delay: calc(var(--word-index) * 500ms + var(--char-index) * 30ms);
+  animation-delay: calc(var(--word-index) * 200ms + var(--char-index) * 30ms);
 }
 
 .wavy-space {
