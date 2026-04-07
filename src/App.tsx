@@ -81,7 +81,8 @@ export default function App() {
   };
 
   const handleAnswer = (personality: Personality) => {
-    const newAnswers = [...answers, personality];
+    const newAnswers = [...answers];
+    newAnswers[currentQuestionIndex] = personality;
     setAnswers(newAnswers);
 
     if (currentQuestionIndex < questions.length - 1) {
@@ -91,6 +92,12 @@ export default function App() {
       setPersonality(result);
       storeQuizResult(newAnswers, result);
       setStage('intermission');
+    }
+  };
+
+  const handleBackQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
     }
   };
 
@@ -154,10 +161,13 @@ export default function App() {
       <RippleEffect>
         <AudioControls audioSource="/trilunarfactions/audio/background-music.mp3" />
         <QuizQuestion
+          key={`q-${currentQuestionIndex}`}
           question={questions[currentQuestionIndex]}
           currentQuestion={currentQuestionIndex + 1}
           totalQuestions={questions.length}
           onAnswer={handleAnswer}
+          previousAnswer={answers[currentQuestionIndex]}
+          onBack={handleBackQuestion}
         />
       </RippleEffect>
     );

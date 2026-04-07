@@ -3,7 +3,7 @@
 }
 
 a, button {
-  cursor: url('/trilunarfactions/assets/cursors/gi_link.png'), pointer;
+  cursor: url('/trilunarfactions/assets/cursors/gi_link.png'), auto;
 }
 
 body.loading {

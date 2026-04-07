@@ -12,6 +12,7 @@ interface NameInputProps {
 
 export function NameInput({ onSubmit }: NameInputProps) {
   const [name, setName] = useState('');
+  const [showCredits, setShowCredits] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,13 +50,15 @@ export function NameInput({ onSubmit }: NameInputProps) {
             </h1>
             
 
-            <p className="text-white text-xs sm:text-sm tracking-wide"
+            <p className="text-xs sm:text-sm tracking-wide font-bold"
             style={{ 
                 fontFamily: "'Genshin Impact', Merriweather, serif",
                 textShadow: '0 0 20px rgba(167, 139, 250, 0.3), 0 0 40px rgba(139, 92, 246, 0.2), 0 0 60px rgba(124, 58, 237, 0.1)',
-                WebkitTextStroke: '2px #5B21B6',
-                paintOrder: 'stroke fill',
                 letterSpacing: '0.05em',
+                backgroundImage: 'linear-gradient(90deg, #D8B4FE 0%, #D8B4FE 20%, #ffffff 35%, #ffffff 65%, #D8B4FE 80%, #D8B4FE 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
             }}>
             ⟢ Which lunar faction do you belong in?
             
@@ -91,7 +94,10 @@ export function NameInput({ onSubmit }: NameInputProps) {
             paintOrder: 'stroke fill',
             letterSpacing: '0.05em',
           }}>
-            <WavyText text="<wiggle>Speak your name</wiggle>, and the night will decide which sister watches over you..." />
+            <span style={{ color: '#ffffff' }}>
+              <WavyText text="<wiggle>Speak your name</wiggle>" />
+            </span>
+            <WavyText text=", and the night will decide which sister watches over you..." />
           </p>
           
        </div> </div>
@@ -129,7 +135,7 @@ export function NameInput({ onSubmit }: NameInputProps) {
           </form>
           
 
-          <div className="text-center mt-4 sm:mt-6">
+          <div className="text-center mt-4 sm:mt-6 pb-16 sm:pb-4">
             <p className="text-gray-300 text-tiny px-2 italic" style={{ 
                 fontFamily: "'Genshin Impact', Merriweather, serif",                
                 WebkitTextStroke: '2px #5B21B6',
@@ -137,9 +143,25 @@ export function NameInput({ onSubmit }: NameInputProps) {
                 letterSpacing: '0.05em',
             }} >
               To report any issues with this website and quiz, please message <span className="font-italic text-white">@nxgisa.exe</span> on Discord.
-              Please note that this website is not affiliated with HoYoverse in any way, and this is a fan-made project created for entertainment purposes only. ChudBina Sprites and the icons of the 3 moons in the end result card screen are illustrated by <span className="font-italic text-white">@nxgisa.exe</span>, and website cursors were made by <span className="font-italic text-white">fegrifo</span> and published on 23/12/2025 under the 'Release to Public Domain' license, but any other assets are sourced directly from HoYoverse's official media. All rights reserved to their respective owners.
             </p>
+            {showCredits && (
+              <p className="text-gray-300 text-tiny px-2 italic mt-3" style={{ 
+                  fontFamily: "'Genshin Impact', Merriweather, serif",                
+                  WebkitTextStroke: '2px #5B21B6',
+                  paintOrder: 'stroke fill',
+                  letterSpacing: '0.05em',
+              }} >
+                Please note that this website is not affiliated with HoYoverse in any way, and this is a fan-made project created for entertainment purposes only. ChudBina Sprites, website creation, and the icons of the 3 moons in the end result card screen were created by <span className="font-italic text-white">@nxgisa.exe</span>, and website cursors were made by <span className="font-italic text-white">fegrifo</span> and published on 23/12/2025 under the 'Release to Public Domain' license, but any other assets are sourced directly from HoYoverse's official media. All rights reserved to their respective owners.
+              </p>
+            )}
           </div>
+
+          <button
+            onClick={() => setShowCredits(!showCredits)}
+            className="fixed bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-blue-700 hover:text-blue-200 underline transition-colors"
+          >
+            {showCredits ? '< Click here to hide credits >' : '< Click here to show credits >'}
+          </button>
         </div>
       </div>
       </div>

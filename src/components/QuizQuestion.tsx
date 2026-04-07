@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Progress } from './ui/progress';
@@ -10,14 +11,19 @@ interface QuizQuestionProps {
   currentQuestion: number;
   totalQuestions: number;
   onAnswer: (personality: 'Aria' | 'Sonnet' | 'Canon') => void;
+  previousAnswer?: 'Aria' | 'Sonnet' | 'Canon';
+  onBack?: () => void;
 }
 
 export function QuizQuestion({ 
   question, 
   currentQuestion, 
   totalQuestions, 
-  onAnswer 
+  onAnswer,
+  previousAnswer,
+  onBack
 }: QuizQuestionProps) {
+  const [selectedAnswer, setSelectedAnswer] = useState<'Aria' | 'Sonnet' | 'Canon' | null>(previousAnswer ?? null);
   const progress = ((currentQuestion / totalQuestions) * 100)-10;
 
   return (
@@ -61,9 +67,13 @@ export function QuizQuestion({
         {question.options.map((option, index) => (
         <Button
           key={index}
-          onClick={() => onAnswer(option.personality)}
+          onClick={() => setSelectedAnswer(option.personality)}
           variant="outline"
-          className="flex items-center gap-2 sm:gap-4 w-full p-3 sm:p-6 text-left text-xs sm:text-base rounded-lg sm:rounded-2xl shadow-[inset_0_0_10px_5px_rgba(255,255,255,0.3)] bg-white/20 border-indigo-400/30 text-cyan-100 hover:bg-indigo-500 transition-all min-h-[3rem] sm:min-h-[4rem]"
+          className={`flex items-center text-cyan-200 gap-2 sm:gap-4 w-full p-3 sm:p-6 text-left text-xs sm:text-base rounded-lg sm:rounded-2xl shadow-[inset_0_0_10px_5px_rgba(255,255,255,0.3)] transition-all min-h-[3rem] sm:min-h-[4rem] ${
+            selectedAnswer === option.personality
+              ? 'bg-indigo-500 border-purple-300 hover:bg-indigo-500'
+              : 'bg-white/20 border-indigo-400/30 text-cyan-100 hover:bg-indigo-500/50'
+          }`}
           style={{ 
             fontFamily: "'Genshin Impact', Merriweather, serif",
             WebkitTextStroke:'2px oklch(68.5% 0.169 237.323)',
@@ -85,6 +95,38 @@ export function QuizQuestion({
         </Button>
               ))}
             </div>
+
+            {selectedAnswer && (
+              <div className={`mt-8 flex gap-3 sm:gap-4 ${currentQuestion === 1 ? 'justify-end' : ''}`}>
+                {currentQuestion > 1 && onBack && (
+                  <Button
+                    onClick={onBack}
+                    variant="outline"
+                    className="flex-1 p-3 sm:p-4 text-xs sm:text-base rounded-lg sm:rounded-xl bg-white/10 border-indigo-400/30 text-cyan-100 hover:bg-white/20 transition-all"
+                    style={{ 
+                      fontFamily: "'Genshin Impact', Merriweather, serif",
+                      WebkitTextStroke:'2px oklch(68.5% 0.169 237.323)',
+                      paintOrder: 'stroke fill',
+                      letterSpacing: '0.05em',
+                    }}
+                  >
+                    Back
+                  </Button>
+                )}
+                <Button
+                  onClick={() => onAnswer(selectedAnswer)}
+                  className={`p-3 sm:p-4 text-xs sm:text-base rounded-lg sm:rounded-xl bg-indigo-500 border-indigo-300 text-white hover:bg-indigo-600 transition-all ${currentQuestion === 1 ? 'w-full' : 'flex-1'}`}
+                  style={{ 
+                    fontFamily: "'Genshin Impact', Merriweather, serif",
+                    WebkitTextStroke:'2px oklch(68.5% 0.169 237.323)',
+                    paintOrder: 'stroke fill',
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  Next
+                </Button>
+              </div>
+            )}
             </div>
         </Card>
 

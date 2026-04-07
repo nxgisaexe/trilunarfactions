@@ -35,7 +35,7 @@ export function IntermissionScreen({ personality, onContinue, showResult }: Inte
       )}
 
       <div
-        className="fixed inset-0 w-full h-full flex items-center justify-center p-4 overflow-hidden cursor-pointer transition-opacity duration-500 z-10"
+        className="fixed inset-0 w-full h-full flex items-center justify-center p-4 overflow-hidden transition-opacity duration-500 z-10"
         onClick={handleClick}
         style={{
           backgroundImage: `url(${moonsBackground})`,
