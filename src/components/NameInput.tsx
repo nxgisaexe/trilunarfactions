@@ -70,7 +70,7 @@ export function NameInput({ onSubmit }: NameInputProps) {
                 paintOrder: 'stroke fill',
                 letterSpacing: '0.05em',
             }}>
-              A personality quiz by the Silvermoon Cafe Discord Server. Join us at <a href="https://discord.gg/columbina" target="_blank" rel="noopener noreferrer" className="text-blue-100 font-bold animate-pulse hover:underline">discord.gg/columbina</a> for more fun events!
+              A personality quiz by <a href="https://tinyurl.com/nxgisaexe" target="_blank" rel="noopener noreferrer" className="text-blue-100 font-bold animate-pulse hover:underline">@nxgisa.exe</a>
             </p>
           </div>
           
