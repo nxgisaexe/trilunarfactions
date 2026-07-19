@@ -146,7 +146,7 @@ export default function App() {
           <NameInput onSubmit={handleNameSubmit} />
           <button
             onClick={handleAdminAccess}
-            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-gray-800/50 backdrop-blur rounded-full opacity-20 hover:opacity-100 transition-opacity shadow-lg z-[10000] flex items-center justify-center text-lg sm:text-xl"
+            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-gray-800/50 backdrop-blur rounded-full opacity-20 hover:opacity-100 transition-opacity shadow-lg z-10000 flex items-center justify-center text-lg sm:text-xl"
             title="Admin Panel"
           >
             <span className="text-white">🔒</span>
